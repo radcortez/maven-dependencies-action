@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.9.1_1-jdk-hotspot
+FROM maven:3.6-jdk-11
 
 COPY entrypoint.sh /entrypoint.sh
 
