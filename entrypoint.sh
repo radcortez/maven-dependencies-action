@@ -4,6 +4,4 @@ git clone https://github.com/smallrye/smallrye-config
 
 cd smallrye-config
 
-mvn clean install -Dmaven.test.skip=true
-
-cp -rf /root/.m2/repository/ /github/workspace/.m2/repository/
+mvn clean install -Dmaven.repo.local=${GITHUB_WORKSPACE}/.m2/repository
