@@ -6,4 +6,4 @@ cd smallrye-config
 
 mvn clean install -Dmaven.test.skip=true
 
-cp -rf ~/.m2/repository/ /github/workspace/.m2/repository/
+cp -rf /root/.m2/repository/ /github/workspace/.m2/repository/
