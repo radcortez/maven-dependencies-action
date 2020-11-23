@@ -1,22 +1,30 @@
 #!/usr/bin/env bash
 
-IFS='/' read -ra ORG_REPO <<< "$1"
-IFS='@' read -ra REPO_BRANCH <<< "${ORG_REPO[1]}"
+echo 'input' $1
 
-ORG=${ORG_REPO[0]}
-REPO=${REPO_BRANCH[0]}
-BRANCH=${REPO_BRANCH[1]}
+IFS=' ' read -ra REPOS <<< "$1"
 
-echo ${ORG}
-echo ${REPO}
-echo ${BRANCH}
+for i in "${REPOS[@]}"
+do
+    echo 'i' ${i}
+    IFS='/' read -ra ORG_REPO <<< "$i"
+    IFS='@' read -ra REPO_BRANCH <<< "${ORG_REPO[1]}"
 
-if [[ -z ${BRANCH} ]]; then
-    git clone https://github.com/${ORG}/${REPO}
-else
-    git clone --branch ${BRANCH} https://github.com/${ORG}/${REPO}
-fi
+    ORG=${ORG_REPO[0]}
+    REPO=${REPO_BRANCH[0]}
+    BRANCH=${REPO_BRANCH[1]}
 
-cd ${REPO}
+    echo 'organization' ${ORG}
+    echo 'repository' ${REPO}
+    echo 'branch' ${BRANCH}
+done
 
-mvn clean install -Dmaven.repo.local=${HOME}/.m2/repository
+#if [[ -z ${BRANCH} ]]; then
+#    git clone https://github.com/${ORG}/${REPO}
+#else
+#    git clone --branch ${BRANCH} https://github.com/${ORG}/${REPO}
+#fi
+#
+#cd ${REPO}
+#
+#mvn clean install -Dmaven.repo.local=${HOME}/.m2/repository
