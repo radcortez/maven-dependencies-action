@@ -1,0 +1,6 @@
+# action.yml
+name: 'Maven Dependencies Action'
+description: 'Builds Maven Dependencies from source'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
