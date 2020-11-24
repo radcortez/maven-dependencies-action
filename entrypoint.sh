@@ -13,6 +13,8 @@ do
     REPO=${REPO_BRANCH[0]}
     BRANCH=${REPO_BRANCH[1]}
 
+    cd ${HOME}
+
     if [[ -z ${BRANCH} ]]; then
         git clone https://github.com/${ORG}/${REPO}
     else
