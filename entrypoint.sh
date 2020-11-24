@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export JAVA_HOME=/usr/local/openjdk-11
+
 IFS=$'\n' read -d '' -a REPOS <<< "$1"
 
 for i in "${REPOS[@]}"
